@@ -66,9 +66,11 @@
 
 An attempt to partially build a replica of reddit.
 
+<details>
+    <summary>Architecture in detail's</summary>
+</details>
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 ### Built With
 
