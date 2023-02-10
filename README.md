@@ -68,6 +68,11 @@ An attempt to partially build a replica of reddit.
 
 <details>
     <summary>Architecture in detail's</summary>
+
+*    Recoil: 
+*    Atoms : to manage the state 
+
+
 </details>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
