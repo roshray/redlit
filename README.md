@@ -64,13 +64,32 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-An attempt to partially build a replica of reddit.
+`An attempt to partially build a replica of reddit.`
 
 <details>
-    <summary>Architecture in detail's</summary>
+    <summary>Architecture in detail's</summary> 
+    <ol>
+      <h4>Functional Requirement</h4>
+        <li>Authentication Modal Login & SignUp</li>
+        <li>
+          TimeLine<p3>Feed from the People and the community you follow!</p3>
+        </li>
+        <li>TimeLine</li>
+    </ol>
+            <h5>Timeline : Goal & Output<h5>
+      <li>
+        Goal: & Output 
+      </li>
+    <h3>Non-Functional Requirements
+      <li>High Availability <p1>  People Feed </p1></li>
+      <li>Latency</li>
+      <li>Scale</li>
+      <li>Fault tolerant</li>
+    </h3>  
 
-*    Recoil: 
-*    Atoms : to manage the state 
+`low-level design`
+*    Recoil : 
+*    Atoms  : to manage the state 
 
 
 </details>
