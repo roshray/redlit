@@ -80,6 +80,9 @@
       <li>
         Goal: & Output 
       </li>
+
+`Firestore :  a document reference, creating a community`
+
     <h3>Non-Functional Requirements
       <li>High Availability <p1>  People Feed </p1></li>
       <li>Latency</li>
