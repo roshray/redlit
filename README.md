@@ -76,24 +76,23 @@
         </li>
         <li>TimeLine</li>
     </ol>
-            <h5>Timeline : Goal & Output<h5>
-      <li>
-        Goal: & Output 
-      </li>
 
 `Firestore :  a document reference, creating a community`
 
-    <h3>Non-Functional Requirements
-      <li>High Availability <p1>  People Feed </p1></li>
-      <li>Latency</li>
-      <li>Scale</li>
-      <li>Fault tolerant</li>
-    </h3>  
+* `Database`: `users & community`
+* `users` can join many community
+* `community` can have many users |  `Many to Many relation`
+    
+<h3>Non-Functional Requirements
+  <li>High Availability <p1>  People Feed </p1></li>
+  <li>Latency</li>
+  <li>Scale</li>
+  <li>Fault tolerant</li>
+</h3>  
 
 `low-level design`
 *    Recoil : 
 *    Atoms  : to manage the state 
-
 
 </details>
 
