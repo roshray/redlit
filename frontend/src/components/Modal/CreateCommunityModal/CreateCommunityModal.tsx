@@ -23,6 +23,7 @@ import { BsFillEaselFill, BsFillEyeFill, BsFillPersonFill } from "react-icons/bs
 import { HiLockClosed} from "react-icons/hi"
 import { doc, getDoc, serverTimestamp, setDoc } from "@firebase/firestore"
 import { useAuthState } from "react-firebase-hooks/auth"
+import { runTransaction } from "firebase/firestore"
 
 type CreateCommunityModalProps = {
     open: boolean   
@@ -61,21 +62,31 @@ const CreateCommunityModal:React.FC<CreateCommunityModalProps> = ({open,handleCl
        setLoading(true);
        try {        
         const communityDocRef = doc(firestore, "communities", communityName)
-        
-        // check if community exits in db
-        const communityDoc = await getDoc(communityDocRef)
 
-        if (communityDoc.exists()) {
-            throw new Error(`Sorry, r/${communityName} is already taken. Try another.`)
-        }
+        await runTransaction(firestore, async (transaction) => {
+                // check if community exits in db
+            const communityDoc = await transaction.get(communityDocRef)
 
-        // create a community!
-        await setDoc(communityDocRef, {
-            creatorId: user?.uid,
-            createdAt: serverTimestamp(), 
-            numberOfMember: 1,
-            privacyType: communityType, 
+            if (communityDoc.exists()) {
+                throw new Error(`Sorry, r/${communityName} is already taken.Try another.`)
+            }
+            // create a community!
+            transaction.set(communityDocRef, {
+                creatorId: user?.uid,
+                createdAt: serverTimestamp(), 
+                numberOfMember: 1,
+                privacyType: communityType, 
+            })
+
+            // create a communitySnippet on User!
+            transaction.set(doc(firestore, `users/${user?.uid}/communitySnippet`,communityName), {
+                communityId: communityName,
+                isModerator: true,
+            }
+            )
         })
+        
+                
        } catch (error: any) {
         console.log("Handle community create error", error)
         setError(error.message) 
