@@ -59,8 +59,6 @@
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
@@ -71,9 +69,9 @@
     <ol>
       <h4>Functional Requirement</h4>
         <li>Authentication Modal Login & SignUp</li>
-        <li>
-          TimeLine<p3>Feed from the People and the community you follow!</p3>
-        </li>
+          <li>
+            TimeLine<p3>Feed from the People and the community you follow!</p3>
+          </li>
         <li>TimeLine</li>
     </ol>
 
@@ -82,7 +80,12 @@
 * `Database`: `users & community`
 * `users` can join many community
 * `community` can have many users |  `Many to Many relation`
-    
+* `Atomic Operations`: Firestore supports atomic ops to read and write data.
+  2 types : `Transactional` & `Batched Writes`.
+
+* `Transactional`  : a set of `read` & `write` operations on one or more documents.
+* `Batched Writes` : a set of `write` operations on one or more documents.
+
 <h3>Non-Functional Requirements
   <li>High Availability <p1>  People Feed </p1></li>
   <li>Latency</li>
