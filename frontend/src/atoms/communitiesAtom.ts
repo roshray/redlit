@@ -24,7 +24,7 @@ const defaultCommunityState: CommunityState = {
     mySnippets: [],
 }
 
-export const CommunityState = atom<CommunityState>({
-    key: "commuitiesState",
+export const communityState = atom<CommunityState>({
+    key: "communitiesState",
     default: defaultCommunityState,
 })
