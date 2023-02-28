@@ -16,8 +16,8 @@ import {
     Flex,
     Icon,
 } from "@chakra-ui/react"
-import { auth, firestore } from "../../../firebase/clientApp"
 
+import { auth, firestore } from "../../../firebase/clientApp"
 import { useState } from "react"
 import { BsFillEaselFill, BsFillEyeFill, BsFillPersonFill } from "react-icons/bs"
 import { HiLockClosed} from "react-icons/hi"
@@ -74,7 +74,7 @@ const CreateCommunityModal:React.FC<CreateCommunityModalProps> = ({open,handleCl
             transaction.set(communityDocRef, {
                 creatorId: user?.uid,
                 createdAt: serverTimestamp(), 
-                numberOfMember: 1,
+                numberOfMembers: 1,
                 privacyType: communityType, 
             })
 
@@ -85,7 +85,6 @@ const CreateCommunityModal:React.FC<CreateCommunityModalProps> = ({open,handleCl
             }
             )
         })
-        
                 
        } catch (error: any) {
         console.log("Handle community create error", error)
