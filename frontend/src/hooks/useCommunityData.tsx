@@ -16,15 +16,13 @@ const useCommunityData = () => {
     const [error, setError] = useState("")
 
     const onJoinOrLeaveCommunity = (communityData: Community, isJoined:boolean) => {
+        // is user signed in ?
         if(!user) {
-            // open the model
+            // open the auth model
             setAuthModalState({open: true, view: "login"})
             return
         }
 
-
-        // is user signed in ?
-            // if not => open auth modal
         if(isJoined){
             leaveCommunity(communityData.id)
             return
@@ -56,15 +54,17 @@ const useCommunityData = () => {
     const joinCommunity  = async (communityData: Community) => {
         
         try {
+            // batch write
             const batch =  writeBatch(firestore)
 
+            // creating a new community snippet
             const newSnippet: CommunitySnippet = {
                 communityId: communityData.id,
                 imageURL: communityData.imageURL || "",
             }
 
             batch.set(doc(firestore, `users/${user?.uid}/communitySnippet`, communityData.id), newSnippet)
-            
+             // updating the numberOfMembers (1)
             batch.update(doc(firestore, "communities", communityData.id), {
                 numberOfMembers: increment(1),
             })
@@ -83,12 +83,6 @@ const useCommunityData = () => {
         }
 
         setLoading(false)
-
-        // batch write
-            // creating a new community snippet
-            // updating the numberOfMembers (1)
-
-        // update recoil state - communityState.mySnippet
     }
     const leaveCommunity = async (communityId: string) => {
         
