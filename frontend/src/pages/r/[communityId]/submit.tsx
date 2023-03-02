@@ -1,16 +1,20 @@
 import { Box, Text } from "@chakra-ui/react"
 import PageContent from "../../../components/Layout/PageContent"
+import NewPostForm from "../../../components/Posts/NewPostForm"
 
 const SubmitPostPage:React.FC = () => {
     
     return (
         <PageContent>
             <>
-                <Box>
+                <Box
+                    p="14px 0px"
+                    borderBottom="1px solid"
+                    borderColor="white"
+                >
                     <Text>Create a post</Text>                    
                 </Box>
-
-                {/* New post form  */}
+               <NewPostForm /> 
             </>
             <>
             {/* About */}
@@ -18,4 +22,4 @@ const SubmitPostPage:React.FC = () => {
         </PageContent>
     )
 }
-export default SubmitPostPage;
+export default SubmitPostPage

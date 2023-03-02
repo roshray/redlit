@@ -73,6 +73,11 @@
             TimeLine<p3>Feed from the People and the community you follow!</p3>
           </li>
         <li>TimeLine</li>
+        <li>Create a Post</li>
+            <li>Post: Title & Text Bos and submit</li>
+            <li>Images & Videos : Upload</li>
+            <h4>On hold Features</h4>
+            <li> `Link` | `Poll` | `Talk with mic`</li>
     </ol>
 
 `Firestore :  a document reference, creating a community`
