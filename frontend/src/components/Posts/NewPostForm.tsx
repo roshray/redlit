@@ -11,7 +11,7 @@ import ImageUpload from "./PostForm/ImageUpload"
 
 type NewPostFormProps = {}
 
-const formTabs: TabItem[] = [
+const formTabs: TabItems[] = [
     {
         title: "Post",
         icon: IoDocumentText,
@@ -34,7 +34,7 @@ const formTabs: TabItem[] = [
     },
 ]
 
-export type TabItem = {
+export type TabItems = {
     title: string;
     icon: typeof Icon.arguments;
 }
@@ -47,9 +47,24 @@ const NewPostForm:React.FC = () => {
 
     const [selectedFile, setSelectedFile] = useState<string>()
     const [loading, setLoading] = useState(false)
+
     const handleCreatePost = async () => {}
     
-    const onSelectedImage= () => {}
+    const onSelectImage= (
+        event: React.ChangeEvent<HTMLInputElement>
+    ) => {
+        const reader =  new FileReader();
+
+        if (event.target.files?.[0]) {
+            reader.readAsDataURL(event.target.files[0])
+        }
+
+        reader.onload = (readerEvent) => {
+            if (readerEvent.target?.result) {
+                setSelectedFile(readerEvent.target.result as string)
+            }
+        }
+    }
     
     const onTextChange = (
         event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -90,7 +105,14 @@ const NewPostForm:React.FC = () => {
                         loading={loading}
                     />
                 )}
-                {selectedTab === "Images & Videos" && <ImageUpload/>}
+                {selectedTab === "Images & Videos" && 
+                    <ImageUpload 
+                        selectedFile={selectedFile}
+                        onSelectImage={onSelectImage}
+                        setSelectedTab={setSelectedTab}
+                        setSelectedFile={setSelectedFile}   
+                />
+                }
             </Flex>
         </Flex>
     )
