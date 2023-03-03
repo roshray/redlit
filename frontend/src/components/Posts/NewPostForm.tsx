@@ -5,11 +5,13 @@ import { AiFillCloseCircle} from "react-icons/ai"
 import { BiPoll} from "react-icons/bi" 
 import TabItem from "./TabItem"
 import { useState } from "react"
+import TextInputs from "./PostForm/TextInputs"
+import ImageUpload from "./PostForm/ImageUpload"
 
 
 type NewPostFormProps = {}
 
-const formTabs = [
+const formTabs: TabItem[] = [
     {
         title: "Post",
         icon: IoDocumentText,
@@ -37,7 +39,31 @@ export type TabItem = {
     icon: typeof Icon.arguments;
 }
 const NewPostForm:React.FC = () => {
-    const [selectedTab, setSelectedTab] = useState(formTabs[0].title)    
+    const [selectedTab, setSelectedTab] = useState(formTabs[0].title)
+    const [textInputs, setTextInputs] = useState({
+        title: "",
+        body: "",
+    })    
+
+    const [selectedFile, setSelectedFile] = useState<string>()
+    const [loading, setLoading] = useState(false)
+    const handleCreatePost = async () => {}
+    
+    const onSelectedImage= () => {}
+    
+    const onTextChange = (
+        event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    ) => {
+        const {
+            target: { name,value},
+        } = event;
+        setTextInputs((prev) => ({
+            ...prev,
+            [name]: value,
+        }))
+    }
+
+
     return (
         <Flex
             direction="column"
@@ -47,8 +73,24 @@ const NewPostForm:React.FC = () => {
         >
             <Flex width="100%">
                 {formTabs.map((item)=> (
-                    <TabItem item={item} selected={item.title === selectedTab} setSelectedTab={setSelectedTab}  />
+                    <TabItem
+                        key={item.title} 
+                        item={item} 
+                        selected={item.title === selectedTab} 
+                        setSelectedTab={setSelectedTab}  
+                    />
                 ))}
+            </Flex>
+            <Flex p={4}>
+                {selectedTab === "Post" && (
+                    <TextInputs 
+                        textInputs={textInputs}
+                        handleCreatePost={handleCreatePost}
+                        onChange={onTextChange}
+                        loading={loading}
+                    />
+                )}
+                {selectedTab === "Images & Videos" && <ImageUpload/>}
             </Flex>
         </Flex>
     )
