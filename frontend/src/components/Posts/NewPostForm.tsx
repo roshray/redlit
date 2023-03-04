@@ -62,7 +62,7 @@ const NewPostForm:React.FC<NewPostFormProps> = ({ user}) => {
     const handleCreatePost = async () => {
         const { communityId} = router.query
         // create new post object => Type Post
-        const newPost:Post = {
+        const newPost:Post = { 
             communityId: communityId as string,
             creatorId: user.uid,
             creatorDisplayName: user.email!.split("@")[0],
@@ -161,11 +161,11 @@ const NewPostForm:React.FC<NewPostFormProps> = ({ user}) => {
                         onSelectImage={onSelectImage}
                         setSelectedTab={setSelectedTab}
                         setSelectedFile={setSelectedFile}   
-                />
+                    />
                 }
             </Flex>
             {error && (
-                <Alert status='error'>
+                <Alert status="error">
                     <AlertIcon />
                     <Text>Error creating post!</Text>
                 </Alert>
