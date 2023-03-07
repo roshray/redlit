@@ -83,7 +83,7 @@ const PostItem:React.FC<PostItemProps> = ({
                     onClick={onVote}
                     cursor="pointer"                
                 />
-                <Text fontSize="9pt" >{post.voteStatus}</Text>
+                <Text fontSize="9pt">{post.voteStatus}</Text>
                 <Icon  
                     as={
                         userVoteValue === -1 
