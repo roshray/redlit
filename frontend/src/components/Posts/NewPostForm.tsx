@@ -102,7 +102,7 @@ const NewPostForm:React.FC<NewPostFormProps> = ({ user}) => {
 
     }
     
-    const onSelectImage= (
+    const onSelectImage = (
         event: React.ChangeEvent<HTMLInputElement>
     ) => {
         const reader =  new FileReader();
