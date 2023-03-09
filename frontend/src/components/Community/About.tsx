@@ -1,19 +1,22 @@
 import { Box, Button, Divider, Flex, Icon, Stack, Text } from '@chakra-ui/react';
-import React from 'react';
+import React, { useRef } from 'react';
 import { Community} from "../../atoms/communitiesAtom"
 import { RiCakeLine} from "react-icons/ri"
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
 import moment from 'moment';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { auth } from '../../firebase/clientApp';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 type AboutProps = {
     communityData: Community;
 };
 
 const About:React.FC<AboutProps> = ({communityData}) => {
+    const [user] = useAuthState(auth)
     const router = useRouter()
-    
+    const selectedFileRef = useRef<string>() 
     return (
         <Box position="sticky" top="14px">
             <Flex 
@@ -72,6 +75,25 @@ const About:React.FC<AboutProps> = ({communityData}) => {
                             Create Post
                         </Button>
                     </Link>
+                    {user?.uid === communityData.creatorId && (
+                        <>
+                            <Divider />
+                            <Stack spacing={1} fontSize="10pt">
+                                <Text fontWeight={600}>Admin</Text>
+                                <Flex align="center" justify="space-between">
+                                    <Text 
+                                        color="blue.500" 
+                                        cursor="pointer"
+                                        _hover={{ textDecoration: "underline"}}
+                                        onClick={() => {}}
+                                        >
+                                            Change Image
+                                    </Text>
+                                    {}
+                                </Flex>
+                            </Stack>
+                        </>
+                    )}
                 </Stack>
             </Flex>
         </Box>
