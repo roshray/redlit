@@ -16,7 +16,13 @@ type PostsProps = {
 const Posts:React.FC<PostsProps> = ({ communityData}) => {
     const [user] = useAuthState(auth)
     const [loading, setLoading] = useState(false)
-    const { postStateValue, setPostStateValue, onVote,onDeletePost,onSelectPost} = usePosts()
+    const { 
+        postStateValue, 
+        setPostStateValue, 
+        onVote,
+        onDeletePost,
+        onSelectPost,
+    } = usePosts()
 
     const getPosts = async () => {
         try {
@@ -27,7 +33,10 @@ const Posts:React.FC<PostsProps> = ({ communityData}) => {
             orderBy("createdAt", "desc")
             )
             const postDocs = await getDocs(postQuery)
-            const posts = postDocs.docs.map(doc => ({ id: doc.id, ...doc.data()}))
+            const posts = postDocs.docs.map(doc => ({ 
+                id: doc.id, 
+                ...doc.data()
+            }))
             setPostStateValue((prev) => ({
                 ...prev,
                 posts: posts as Post[],
