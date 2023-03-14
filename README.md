@@ -91,6 +91,10 @@
 * `Transactional`  : a set of `read` & `write` operations on one or more documents.
 * `Batched Writes` : a set of `write` operations on one or more documents.
 
+`Votes on Posts` : The most fun part of this project.
+* `UpVote` or `DownVote`
+* voting function's : `upvote` ,`downvote` , `removing the Vote (upvote => neutral or downvote => neutral)` and `Flipping the Vote (up => down or down => up)`
+
 <h3>Non-Functional Requirements
   <li>High Availability <p1>  People Feed </p1></li>
   <li>Latency</li>
