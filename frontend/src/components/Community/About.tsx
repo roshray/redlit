@@ -20,8 +20,10 @@ type AboutProps = {
 
 const About:React.FC<AboutProps> = ({communityData}) => {
     const [user] = useAuthState(auth)
+    
     const selectedFileRef = useRef<HTMLInputElement>(null) 
     const {selectedFile, setSelectedFile, onSelectFile} = useSelectFile()
+    
     const [uploadingImage,setUploadingImage] = useState(false)
     const setCommunityStateValue = useSetRecoilState(communityState)
 

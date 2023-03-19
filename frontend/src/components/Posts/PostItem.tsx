@@ -58,7 +58,9 @@ const PostItem:React.FC<PostItemProps> = ({
     
     const [error, setError] = useState(false)
 
-    const handleDelete = async (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const handleDelete = async (
+        event: React.MouseEvent<HTMLDivElement, MouseEvent>
+        ) => {
         event.stopPropagation()
         setLoadingDelete(true)
         try {
@@ -69,7 +71,7 @@ const PostItem:React.FC<PostItemProps> = ({
             }
 
             console.log("Post was successfully delete")
-            if(singlePostPage){
+            if (singlePostPage) {
                  router.push(`/r/${post.communityId}`)
             }
 
