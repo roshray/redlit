@@ -80,6 +80,13 @@
             <li> `Link` | `Poll` | `Talk with mic`</li>
     </ol>
 
+`State Management:`
+
+* Local State  : useState()
+* Global state : Recoil
+* server state : ?
+* URL state    : Nextjs [useRouter()]
+
 `Firestore :  a document reference, creating a community`
 
 * `Database`: `users & community`
@@ -101,10 +108,6 @@
   <li>Scale</li>
   <li>Fault tolerant</li>
 </h3>  
-
-`low-level design`
-*    Recoil : 
-*    Atoms  : to manage the state 
 
 </details>
 
