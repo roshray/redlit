@@ -130,8 +130,6 @@ const useCommunityData = () => {
            }))
         } catch (error) {
             console.log("getCommunityData", error);
-            
-            
         }
     }
 
