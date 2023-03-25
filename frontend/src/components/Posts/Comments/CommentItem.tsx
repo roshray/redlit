@@ -1,7 +1,6 @@
 import { Box, Flex, Icon, Spinner, Stack , Text} from '@chakra-ui/react';
 import { Timestamp } from 'firebase/firestore';
-import moment from 'moment';
-import React from 'react';
+import moment from "moment";
 import { FaReddit } from 'react-icons/fa';
 
 import {
