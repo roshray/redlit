@@ -7,8 +7,8 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth, firestore} from "../../../../firebase/clientApp"
 import { useRouter} from "next/router"
 import { doc, getDoc } from 'firebase/firestore';
-import { Post } from '@/atoms/postsAtom';
-import useCommunityData from '@/hooks/useCommunityData';
+import { Post } from "../../../../atoms/postsAtom";
+import useCommunityData from '../../../../hooks/useCommunityData';
 import About from "../../../../components/Community/About"
 import Comments from "../../../../components/Posts/Comments/Comments";
 import { User } from 'firebase/auth';
