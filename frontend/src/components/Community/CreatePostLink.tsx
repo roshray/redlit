@@ -7,19 +7,28 @@ import { FaReddit } from 'react-icons/fa';
 import { IoImageOutline } from 'react-icons/io5';
 import { useSetRecoilState } from 'recoil';
 import { auth } from "../../firebase/clientApp"
+import useDirectory from '@/hooks/useDirectory';
 
 const CreatePostLink = () => {
     
     const router = useRouter()
     const [user] =  useAuthState(auth)
     const setAuthModalState = useSetRecoilState(authModalState)
+    
+    const { toggleMenuOpen} = useDirectory()
+
     const handleClick = () => {
         if(!user){
             setAuthModalState({ open: true, view: "login"})
             return
         }
         const {communityId} = router.query
-        router.push(`/r/${communityId}/submit`)
+        if (communityId) {
+            router.push(`/r/${communityId}/submit`)
+            return
+        }
+        // open directory menu
+        toggleMenuOpen()
     }
     return (
         <Flex

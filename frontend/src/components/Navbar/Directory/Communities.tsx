@@ -1,7 +1,11 @@
-import { Box, Flex, Icon, MenuItem,Text } from "@chakra-ui/react";
-
+import { 
+    Box, 
+    Flex, 
+    Icon, 
+    MenuItem,
+    Text
+ } from "@chakra-ui/react";
 import CreateCommunityModal from "../../Modal/CreateCommunityModal/CreateCommunityModal"
-
 import { GrAdd } from "react-icons/gr"
 import { useState } from "react";
 import { communityState } from "../../../atoms/communitiesAtom";
@@ -40,7 +44,7 @@ const Communities:React.FC<CommunitiesProps> = () => {
                         displayText={`r/${snippet.communityId}`}
                         link={`/r/${snippet.communityId}`}
                         iconColor="brand.100"
-                        imageUrl={snippet.imageURL}
+                        imageURL={snippet.imageURL}
                     />
                 ))}
             </Box>
@@ -73,7 +77,7 @@ const Communities:React.FC<CommunitiesProps> = () => {
                         displayText={`r/${snippet.communityId}`}
                         link={`/r/${snippet.communityId}`}
                         iconColor="blue.500"
-                        imageUrl={snippet.imageURL}
+                        imageURL={snippet.imageURL}
                     />
                 ))}
             </Box>
