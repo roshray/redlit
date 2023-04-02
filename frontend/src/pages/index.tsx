@@ -7,7 +7,7 @@ import { communityState } from "../atoms/communitiesAtom";
 import {  useRecoilValue } from "recoil";
 import { collection, getDocs, limit, orderBy, query, where } from "firebase/firestore";
 import usePosts from "@/hooks/usePosts";
-import { Post } from "@/atoms/postsAtom";
+import { Post, PostVote } from "@/atoms/postsAtom";
 import PostLoader from "@/components/Posts/PostLoader";
 import { Stack } from "@chakra-ui/react";
 import PostItem from "@/components/Posts/PostItem";
@@ -86,9 +86,31 @@ const Home: NextPage = () => {
         }
         setLoading(false)
     }
-    //const getUserPostVotes = () => {}
 
-    //const getUserPostVotes = () => {}
+    const getUserPostVotes = async () => {
+        try {
+          const postIds = postStateValue.posts.map((post) => post.id)  
+          const postVotesQuery = query(
+            collection(firestore, `users/${user?.uid}/postVotes`),
+            where("postId", "in", postIds)
+            )
+            const postVotesDocs = await getDocs(postVotesQuery)
+            const postVotes = postVotesDocs.docs.map(
+                (doc) => ({ 
+                    id: doc.id,
+                    ...doc.data(),
+                  })
+            )
+
+            setPostStateValue((prev) => ({
+                ...prev,
+                postVotes: postVotes as PostVote[],
+            }))
+        } catch (error) {
+            console.log("getUserPostVotes error", error); 
+        }
+    }
+    
     useEffect(() => {
         if (communityStateValue.snippetsFetched) buildUserHomeFeed()
 
@@ -99,6 +121,17 @@ const Home: NextPage = () => {
     useEffect(() => {
       if (!user && !loadingUser) buildNoUserHomeFeed()
     }, [user,loadingUser])
+
+    useEffect(() => {
+        if (user && postStateValue.posts.length) getUserPostVotes()
+        return () => {
+            setPostStateValue((prev) => ({
+                ...prev,
+                postVotes: [], 
+            }))
+        }
+
+    }, [user, postStateValue.posts])
     
 
     return (
