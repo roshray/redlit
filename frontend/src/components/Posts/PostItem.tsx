@@ -72,8 +72,8 @@ const PostItem:React.FC<PostItemProps> = ({
             if(!success) {
                 throw new Error("Failed to delete post")
             }
-
             console.log("Post was successfully delete")
+
             if (singlePostPage) {
                  router.push(`/r/${post.communityId}`)
             }
@@ -147,8 +147,7 @@ const PostItem:React.FC<PostItemProps> = ({
                                     src={post.communityImageURL}
                                     borderRadius="full"
                                     boxSize="18px"
-                                    mr={2}
-                                    
+                                    mr={2}                          
                                 />
                             ): (
                                 <Icon 
@@ -166,10 +165,10 @@ const PostItem:React.FC<PostItemProps> = ({
                                     _hover={{ textDecoration: "underline"}}
                                     onClick={(event) => event.stopPropagation()}
                                 >
-                                    {`r/${post.communityId}`}</Text> 
+                                    {`r/${post.communityId}`}
+                                </Text> 
                             </Link>
-                            <Icon as={BsDot} color="gray.500" fontSize={8}/>
-                        
+                            <Icon as={BsDot} color="gray.500" fontSize={8}/> 
                         </>
                        )}
                        <Text>
@@ -250,7 +249,8 @@ const PostItem:React.FC<PostItemProps> = ({
                                  <Text fontSize="9pt">Delete</Text>
                                </>
                             )}
-                         </Flex>)}
+                         </Flex>
+                        )}
                 </Flex>
             </Flex>
         </Flex>

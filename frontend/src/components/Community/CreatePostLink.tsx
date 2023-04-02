@@ -7,7 +7,7 @@ import { FaReddit } from 'react-icons/fa';
 import { IoImageOutline } from 'react-icons/io5';
 import { useSetRecoilState } from 'recoil';
 import { auth } from "../../firebase/clientApp"
-import useDirectory from '@/hooks/useDirectory';
+import useDirectory from "../../hooks/useDirectory";
 
 const CreatePostLink = () => {
     
