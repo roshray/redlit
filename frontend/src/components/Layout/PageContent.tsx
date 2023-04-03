@@ -12,7 +12,7 @@ const PageContent:React.FC<PageContentProps> = ({ children}) => {
             <Flex 
                 width="95%" 
                 justify="center" 
-                maxW={800} 
+                maxWidth={800} 
             >
                 {/* LHS */}
                 <Flex 
@@ -27,9 +27,9 @@ const PageContent:React.FC<PageContentProps> = ({ children}) => {
                     direction="column"
                     display={{ base: "none", md: "flex"}}
                     flexGrow={1} 
-                    border="1px solid orange">
+                >
                         {children && children[1 as keyof typeof children]}
-                    </Flex>
+                </Flex>
             </Flex>
         </Flex>
     )

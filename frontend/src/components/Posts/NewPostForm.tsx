@@ -99,11 +99,9 @@ const NewPostForm:React.FC<NewPostFormProps> = ({ user, communityImageURL}) => {
 
         } catch (error: any) {
             console.log("handleCreatePost", error.message)
-            setError(true)
-            
+            setError(true) 
         }
         setLoading(false)
-
     }
     
     /* const onSelectImage = (
@@ -133,7 +131,6 @@ const NewPostForm:React.FC<NewPostFormProps> = ({ user, communityImageURL}) => {
             [name]: value,
         }))
     }
-
 
     return (
         <Flex

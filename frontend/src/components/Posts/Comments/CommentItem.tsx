@@ -79,8 +79,7 @@ const CommentItem:React.FC<CommentItemProps> = ({
                             </Text>
                         </>
                     )}
-                </Stack>
-                
+                </Stack> 
             </Stack>
         </Flex>
     )
