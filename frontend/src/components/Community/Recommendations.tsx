@@ -1,5 +1,5 @@
-import { Community } from '@/atoms/communitiesAtom';
-import useCommunityData from '@/hooks/useCommunityData';
+import { Community } from '../../atoms/communitiesAtom';
+import useCommunityData from '../../hooks/useCommunityData';
 import { firestore } from '../../firebase/clientApp';
 import { collection, getDocs, limit, orderBy, query } from 'firebase/firestore';
 
@@ -8,7 +8,7 @@ import { Flex, Text,Skeleton, SkeletonCircle, Stack, Image, Icon, Box, Button } 
 import Link from 'next/link';
 import { FaReddit } from 'react-icons/fa';
 
-const Recommendations = () => {
+const Recommendations:React.FC = () => {
     const [communities, setCommunities] = useState<Community[]>([])
     const [loading, setLoading] = useState(false)
     const {communityStateValue, onJoinOrLeaveCommunity} = useCommunityData()

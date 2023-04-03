@@ -14,6 +14,8 @@ import PostItem from "@/components/Posts/PostItem";
 import CreatePostLink from "@/components/Community/CreatePostLink";
 import useCommunityData from "@/hooks/useCommunityData";
 import Recommendations from "@/components/Community/Recommendations";
+import PersonalHome from "@/components/Community/PersonalHome";
+import Premium from "@/components/Community/Premium";
 
 const Home: NextPage = () => {
     const [user, loadingUser]= useAuthState(auth)
@@ -161,9 +163,11 @@ const Home: NextPage = () => {
               )} 
             </>
 
-            <>
+            <Stack spacing={5}>
                 <Recommendations />
-            </>
+                <Premium />
+                <PersonalHome />
+            </Stack>
         </PageContent>
     )
 }

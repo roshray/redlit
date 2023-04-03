@@ -35,22 +35,18 @@ const About:React.FC<AboutProps> = ({communityData}) => {
          await uploadString(imageRef, selectedFile, "data_url")
          const downloadURL = await getDownloadURL(imageRef)
          await updateDoc(doc(firestore, "communities", communityData.id), {
-            imageURL: downloadURL,
-            
+            imageURL: downloadURL,  
          })
-
-         setCommunityStateValue(prev => ({
+         setCommunityStateValue((prev) => ({
             ...prev,
             currentCommunity: {
                 ...prev.currentCommunity,
-                imageURL: downloadURL
-
+                imageURL: downloadURL,
             } as Community,
          }))
         
         } catch (error) {
-            console.log("onUpdateImage Error", error)
-            
+            console.log("onUpdateImage Error", error)  
         }
         setUploadingImage(false)
     }
@@ -154,8 +150,7 @@ const About:React.FC<AboutProps> = ({communityData}) => {
                                         accept="image/x-png,image/gif,image/jpeg"
                                         hidden
                                         ref={selectedFileRef}
-                                        onChange={onSelectFile}
-                                    
+                                        onChange={onSelectFile} 
                                     />
                             </Stack>
                         </>
