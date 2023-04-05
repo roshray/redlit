@@ -64,6 +64,7 @@ const About:React.FC<AboutProps> = ({communityData}) => {
                 <Text fontSize="10pt" fontWeight={700}>About Community</Text>
                 <Icon as={HiOutlineDotsHorizontal}/>
             </Flex>
+            
             <Flex 
                 direction="column" 
                 p={3} 

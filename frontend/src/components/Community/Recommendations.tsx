@@ -4,7 +4,18 @@ import { firestore } from '../../firebase/clientApp';
 import { collection, getDocs, limit, orderBy, query } from 'firebase/firestore';
 
 import React, { useEffect, useState } from 'react';
-import { Flex, Text,Skeleton, SkeletonCircle, Stack, Image, Icon, Box, Button } from '@chakra-ui/react';
+import {
+    Flex,
+    Text,
+    Skeleton, 
+    SkeletonCircle, 
+    Stack, 
+    Image, 
+    Icon, 
+    Box, 
+    Button, 
+} from '@chakra-ui/react';
+
 import Link from 'next/link';
 import { FaReddit } from 'react-icons/fa';
 
@@ -129,7 +140,7 @@ const Recommendations:React.FC = () => {
                                                 fontSize="8pt"
                                                 variant={isJoined ? "outline": "solid "}
                                                 onClick={(event) => {
-                                                    event.stopPropagation()
+                                                    event.preventDefault()
                                                     onJoinOrLeaveCommunity(item,isJoined)
                                                 }}
                                             >

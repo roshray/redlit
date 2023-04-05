@@ -75,7 +75,7 @@ const PostItem:React.FC<PostItemProps> = ({
             console.log("Post was successfully delete")
 
             if (singlePostPage) {
-                 router.push(`/r/${post.communityId}`)
+                router.push(`/r/${post.communityId}`)
             }
 
         } catch (error: any) {
