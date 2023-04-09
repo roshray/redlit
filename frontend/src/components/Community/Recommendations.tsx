@@ -36,8 +36,7 @@ const Recommendations:React.FC = () => {
            const communities = communityDocs.docs.map(
             (doc) => ({ 
                     id: doc.id,
-                    ...doc.data(),
-                
+                    ...doc.data(), 
                 }))
                 setCommunities(communities as Community[]) 
             

@@ -155,11 +155,14 @@ const usePosts = () => {
             const postDocRef = doc(firestore, "posts", post.id)
             await deleteDoc(postDocRef)
             
+            console.log(deleteDoc)
+            
             // update recoil state
             setPostStateValue((prev) => ({
                 ...prev,
-                posts: prev.posts.filter((item) => item.id !== post.id),
-            }))
+                posts: prev.posts.filter(
+                    (item) => item.id !== post.id),
+                }))
             return true
         } catch (error) {
 

@@ -9,7 +9,7 @@ import { collection, getDocs, limit, orderBy, query, where } from "firebase/fire
 import usePosts from "@/hooks/usePosts";
 import { Post, PostVote } from "@/atoms/postsAtom";
 import PostLoader from "@/components/Posts/PostLoader";
-import { Stack } from "@chakra-ui/react";
+import { Stack} from "@chakra-ui/react";
 import PostItem from "@/components/Posts/PostItem";
 import CreatePostLink from "@/components/Community/CreatePostLink";
 import useCommunityData from "@/hooks/useCommunityData";
