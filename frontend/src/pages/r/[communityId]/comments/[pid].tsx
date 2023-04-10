@@ -54,9 +54,12 @@ const PostPage = () => {
                     onVote={onVote}
                     onDeletePost={onDeletePost}
                     userVoteValue={postStateValue.postVotes.find(
-                        (item) => item.postId === postStateValue.selectedPost?.id)?.voteValue
+                        (item) => 
+                        item.postId === postStateValue.selectedPost?.id)?.voteValue
                     }
-                    userIsCreator={user?.uid === postStateValue.selectedPost?.creatorId}
+                    userIsCreator={
+                        user?.uid === postStateValue.selectedPost?.creatorId
+                    }
                 />}
                 <Comments 
                     user={user as User} 
