@@ -12,9 +12,6 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/roshray/redlit">
-    <img src="frontend/src/assets/logo.png" alt="Logo" width="280" height="80">
-  </a>
 
 <h3 align="center">redlit</h3>
 
@@ -24,7 +21,6 @@
     <a href="https://github.com/roshray/redlit"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://www.youtube.com/watch?v=-1LC_N8UsaM">View Demo</a>
     ·
     <a href="https://github.com/roshray/redlit/issues">Report Bug</a>
     ·
@@ -113,6 +109,9 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+![Home](/frontend/public/images/reddit_homepage.png)
+
+
 ### Built With
 
 * [![Nextjs][Next.js]][Next-url]
@@ -140,7 +139,7 @@ How to use the software and how to install them.
 
 ### Installation
 
-1. Get a OpenAI API Key at [https://OpenAI.com](https://OpenAI.com)
+1. Setup a webapp in firebase DB
 2. Clone the repo
    ```sh
    git clone https://github.com/roshray/redlit.git
@@ -151,7 +150,13 @@ How to use the software and how to install them.
    ```
 4. Enter your Firebase API in `.env`
    ```
-   Firebase_API_KEY = 'ENTER YOUR API'
+   NEXT_PUBLIC_FIREBASE_API_KEY = "enterYoUrkEy",
+   NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN = "",
+   NEXT_PUBLIC_FIREBASE_PROJECT_ID = "",
+   NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET = "",
+   NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID = "",
+   NEXT_PUBLIC_FIREBASE_APP_ID = ""
+
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
