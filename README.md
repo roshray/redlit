@@ -168,7 +168,7 @@ How to use the software and how to install them.
 
 Additional screenshots, code examples and demos are shared.
 
-_For more details, please refer to the [Documentation](https://github.com/roshray/)_
+_For more details, please refer to the [Documentation](https://github.com/roshray/redlit/blob/main/frontend/README.md)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
