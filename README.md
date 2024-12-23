@@ -208,8 +208,6 @@ Don't forget to give the project a star! Thanks again!
 <!-- CONTACT -->
 ## Contact
 
-Roshan Ray - [@rosh_ray_](https://twitter.com/rosh_ray_) - 97rayroshan@gmail.com
-
 Project Link: [https://github.com/roshray/redlit](https://github.com/roshray/redlit)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
